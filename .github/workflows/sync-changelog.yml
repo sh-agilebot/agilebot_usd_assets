@@ -21,14 +21,14 @@ jobs:
       - name: Extract CHANGELOG.md content
         id: extract_en
         run: |
-          echo "changelog_content<<EOF" >> $GITHUB_OUTPUT
+          echo "changelog_content<<-'EOF'" >> $GITHUB_OUTPUT
           cat CHANGELOG.md >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Extract CHANGELOG_zh.md content
         id: extract_zh
         run: |
-          echo "changelog_content<<EOF" >> $GITHUB_OUTPUT
+          echo "changelog_content<<-'EOF'" >> $GITHUB_OUTPUT
           cat CHANGELOG_zh.md >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
