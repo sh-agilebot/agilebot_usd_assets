@@ -1,0 +1,84 @@
+name: Sync CHANGELOG to README
+
+on:
+  push:
+    paths:
+      - 'CHANGELOG.md'
+      - 'CHANGELOG_zh.md'
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  sync-changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract CHANGELOG.md content
+        id: extract_en
+        run: |
+          echo "changelog_content<<EOF" >> $GITHUB_OUTPUT
+          cat CHANGELOG.md >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Extract CHANGELOG_zh.md content
+        id: extract_zh
+        run: |
+          echo "changelog_content<<EOF" >> $GITHUB_OUTPUT
+          cat CHANGELOG_zh.md >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Update README.md
+        run: |
+          python3 << 'EOF'
+          import re
+
+          changelog = """${{ steps.extract_en.outputs.changelog_content }}"""
+
+          with open('README.md', 'r', encoding='utf-8') as f:
+              content = f.read()
+
+          pattern = r'## Changelog\n\nFor detailed version history and changes, please refer to \[CHANGELOG\.md\]\(CHANGELOG\.md\)\.'
+          replacement = f'## Changelog\n\n{changelog}'
+
+          new_content = re.sub(pattern, replacement, content)
+
+          with open('README.md', 'w', encoding='utf-8') as f:
+              f.write(new_content)
+          EOF
+
+      - name: Update README_zh.md
+        run: |
+          python3 << 'EOF'
+          import re
+
+          changelog = """${{ steps.extract_zh.outputs.changelog_content }}"""
+
+          with open('README_zh.md', 'r', encoding='utf-8') as f:
+              content = f.read()
+
+          pattern = r'## 更新日志\n\n详细的版本历史和变更记录，请参考 \[CHANGELOG_zh\.md\]\(CHANGELOG_zh\.md\)\。'
+          replacement = f'## 更新日志\n\n{changelog}'
+
+          new_content = re.sub(pattern, replacement, content)
+
+          with open('README_zh.md', 'w', encoding='utf-8') as f:
+              f.write(new_content)
+          EOF
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md README_zh.md
+          git diff --staged --quiet || git commit -m "chore: sync CHANGELOG to README files [skip ci]"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
