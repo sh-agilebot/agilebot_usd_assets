@@ -112,7 +112,20 @@ This method is suitable for:
 
 ---
 
-## 📦 Gripper Model Source
+## � Tips
+
+### Gripper Grasping Issues
+
+If you experience **gripper clipping through objects** during grasping operations, try the following adjustments:
+
+1. **Reduce gripper max force**: Lower the maximum force to single-digit values (e.g., 1-5 N) to reduce the gripping strength
+2. **Decrease gripper natural frequency**: Significantly reduce the natural frequency parameter to make the gripper more compliant
+
+These adjustments help prevent the gripper from applying excessive force that causes object penetration, but they may introduce other grasping issues. Please adjust dynamically based on your usage scenario.
+
+---
+
+## �📦 Gripper Model Source
 
 The gripper model is sourced from the open-source project:
 [robotiq_2f_gripper](https://github.com/gen-robot/robotiq_2f_gripper/tree/main/robotiq_2f_140_gripper_visualization)
