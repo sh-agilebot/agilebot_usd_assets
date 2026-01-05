@@ -18,56 +18,39 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Extract CHANGELOG.md content
-        id: extract_en
-        run: |
-          echo "changelog_content<<-'EOF'" >> $GITHUB_OUTPUT
-          cat CHANGELOG.md >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-      - name: Extract CHANGELOG_zh.md content
-        id: extract_zh
-        run: |
-          echo "changelog_content<<-'EOF'" >> $GITHUB_OUTPUT
-          cat CHANGELOG_zh.md >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-      - name: Update README.md
+      - name: Update README files
         run: |
           python3 << 'EOF'
           import re
 
-          changelog = """${{ steps.extract_en.outputs.changelog_content }}"""
+          # Read CHANGELOG files directly
+          with open('CHANGELOG.md', 'r', encoding='utf-8') as f:
+              changelog_en = f.read()
 
+          with open('CHANGELOG_zh.md', 'r', encoding='utf-8') as f:
+              changelog_zh = f.read()
+
+          # Update README.md
           with open('README.md', 'r', encoding='utf-8') as f:
-              content = f.read()
+              content_en = f.read()
 
-          pattern = r'## Changelog\n\nFor detailed version history and changes, please refer to \[CHANGELOG\.md\]\(CHANGELOG\.md\)\.'
-          replacement = f'## Changelog\n\n{changelog}'
-
-          new_content = re.sub(pattern, replacement, content)
+          pattern_en = r'## Changelog\n\nFor detailed version history and changes, please refer to \[CHANGELOG\.md\]\(CHANGELOG\.md\)\.'
+          replacement_en = f'## Changelog\n\n{changelog_en}'
+          new_content_en = re.sub(pattern_en, replacement_en, content_en)
 
           with open('README.md', 'w', encoding='utf-8') as f:
-              f.write(new_content)
-          EOF
+              f.write(new_content_en)
 
-      - name: Update README_zh.md
-        run: |
-          python3 << 'EOF'
-          import re
-
-          changelog = """${{ steps.extract_zh.outputs.changelog_content }}"""
-
+          # Update README_zh.md
           with open('README_zh.md', 'r', encoding='utf-8') as f:
-              content = f.read()
+              content_zh = f.read()
 
-          pattern = r'## 更新日志\n\n详细的版本历史和变更记录，请参考 \[CHANGELOG_zh\.md\]\(CHANGELOG_zh\.md\)\。'
-          replacement = f'## 更新日志\n\n{changelog}'
-
-          new_content = re.sub(pattern, replacement, content)
+          pattern_zh = r'## 更新日志\n\n详细的版本历史和变更记录，请参考 \[CHANGELOG_zh\.md\]\(CHANGELOG_zh\.md\)\。'
+          replacement_zh = f'## 更新日志\n\n{changelog_zh}'
+          new_content_zh = re.sub(pattern_zh, replacement_zh, content_zh)
 
           with open('README_zh.md', 'w', encoding='utf-8') as f:
-              f.write(new_content)
+              f.write(new_content_zh)
           EOF
 
       - name: Commit changes
