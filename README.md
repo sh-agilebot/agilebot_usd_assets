@@ -10,6 +10,16 @@
 
 ---
 
+## 🔗 Related Repositories
+
+This project is part of the official Agilebot Isaac ecosystem. The following repositories work together to provide a complete simulation and learning workflow:
+
+- **agilebot_isaac_sim**: Isaac Sim integration for Agilebot robots, including simulation configurations, setup files, and demo examples. *No robot digital assets are included.*
+- **agilebot_isaac_lab**: Isaac Lab environments and training examples for Agilebot robots, including task definitions and learning pipelines. *No robot digital assets are included.*
+- **agilebot_isaac_usd_assets**: Centralized repository for Agilebot robot digital assets, including USD files, meshes, and textures.
+
+---
+
 ## 📖 Project Overview
 
 This repository contains **USD (Universal Scene Description)** digital assets for Agilebot Robotics' robot products, primarily targeting the **NVIDIA Isaac Sim and Isaac Lab** ecosystems for robot modeling, physics simulation, algorithm validation, and application development.
