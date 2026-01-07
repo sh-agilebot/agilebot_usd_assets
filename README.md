@@ -10,7 +10,7 @@
 
 ---
 
-## � Repository Overview
+## 📖 Repository Overview
 
 This repository is the core asset repository for the official Agilebot Isaac ecosystem, containing USD (Universal Scene Description) digital assets for the full range of Agilebot collaborative robots. It primarily targets the **NVIDIA Isaac Sim and Isaac Lab** ecosystems for robot modeling, physics simulation, algorithm validation, and application development.
 
