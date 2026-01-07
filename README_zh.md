@@ -116,10 +116,13 @@ robot.GetVariantSet("Gripper").SetVariantSelection("None")
 
 ### 夹爪抓取问题
 
-如果在抓取操作时遇到**夹爪穿模**的问题，可以尝试以下调整：
+如果在抓取操作时遇到**夹爪穿模、掉落**的问题，可以尝试以下调整：
 
 1. **降低夹爪最大力**：将最大力降低到个位数（例如 1-5 N），以减少抓取力度
-2. **大幅降低夹爪自然频率**：显著降低自然频率参数，使夹爪更加柔顺
+2. **大幅降低降低物理仿真帧率**：将物理仿真帧率降低到默认的60FPS，以减少计算负担
+    ```
+    world = World(stage_units_in_meters=1.0, physics_dt=1/60.0)
+    ```
 
 这些调整有助于防止夹爪施加过大的力导致物体穿透，但都可能带来其他的抓取问题，请根据你的使用场景动态调整
 
@@ -134,6 +137,17 @@ robot.GetVariantSet("Gripper").SetVariantSelection("None")
 
 夹爪导入与组装流程参考 NVIDIA 官方文档：
 [Isaac Sim 机器人导入与组装教程](https://docs.isaacsim.omniverse.nvidia.com/latest/robot_setup_tutorials/tutorial_import_assemble_manipulator.html)
+
+---
+
+## 🖥️ 实验环境
+
+**测试环境：**
+
+- **系统**：Ubuntu 22.04
+- **GPU**：NVIDIA RTX 5090
+- **Isaac Sim 版本**：5.1.0-rc.19+release.26219.9c81211b.gl
+- **Isaac Lab 版本**：2.3.0
 
 ---
 

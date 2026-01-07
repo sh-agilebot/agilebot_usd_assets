@@ -116,10 +116,13 @@ This method is suitable for:
 
 ### Gripper Grasping Issues
 
-If you experience **gripper clipping through objects** during grasping operations, try the following adjustments:
+If you experience **gripper clipping through objects or dropping** during grasping operations, try the following adjustments:
 
 1. **Reduce gripper max force**: Lower the maximum force to single-digit values (e.g., 1-5 N) to reduce the gripping strength
-2. **Decrease gripper natural frequency**: Significantly reduce the natural frequency parameter to make the gripper more compliant
+2. **Significantly reduce physics simulation frame rate**: Lower the physics simulation frame rate to the default 60 FPS to reduce computational burden
+    ```
+    world = World(stage_units_in_meters=1.0, physics_dt=1/60.0)
+    ```
 
 These adjustments help prevent the gripper from applying excessive force that causes object penetration, but they may introduce other grasping issues. Please adjust dynamically based on your usage scenario.
 
@@ -137,7 +140,18 @@ Gripper import and assembly process refers to NVIDIA official documentation:
 
 ---
 
-## 🚀 Usage
+## �️ Experimental Environment
+
+**Test Environment:**
+
+- **System**: Ubuntu 22.04
+- **GPU**: NVIDIA RTX 5090
+- **Isaac Sim Version**: 5.1.0-rc.19+release.26219.9c81211b.gl
+- **Isaac Lab Version**: 2.3.0
+
+---
+
+## �🚀 Usage
 
 ### Using in Isaac Sim
 
