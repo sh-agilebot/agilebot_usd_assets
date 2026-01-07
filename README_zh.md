@@ -10,7 +10,7 @@
 
 ---
 
-## � 相关仓库说明
+## 🔗 相关仓库说明
 
 本项目属于 Agilebot 官方 Isaac 生态的一部分，以下仓库共同组成完整的仿真与学习工作流：
 
@@ -20,7 +20,7 @@
 
 ---
 
-##�📖 项目简介
+## 📖 项目简介
 
 本仓库包含 Agilebot Robotics 机器人产品的 **USD（Universal Scene Description）** 数字资产，主要面向 **NVIDIA Isaac Sim 与 Isaac Lab** 生态，用于机器人建模、物理仿真、算法验证与应用开发。
 
