@@ -45,7 +45,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Optimized
 - Updated all robot models' joint natural frequency and damping parameters to Isaac Sim official recommended empirical values (active joints: 300, linked joints: 2500, damping: 0.005)
-- Updated physics parameters documentation to clarify mass and directional inertia sources (GBT-C5A: manually calculated by Agilebot, other models: automatically generated)
+- Updated physics parameters for all robot models (GBT-C5A, GBT-C7A, GBT-C12A, GBT-C16A), including mass, inertia, and joint drive parameters
+- Updated physics parameters documentation to clarify mass and directional inertia sources (all models: manually calculated by Agilebot)
 
 ### Documentation
 - Enhanced README with detailed integrated model information
@@ -65,13 +66,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.4] - 2026-03-09
+
+### Removed
+- **Removed Robotiq 2F-140 gripper USD assets** - Due to copyright uncertainty, removed all Robotiq 2F-140 gripper related USD files from all robot models (GBT-C5A, GBT-C7A, GBT-C12A, GBT-C16A)
+- **Removed gbt-c5a_camera_gripper integrated model** - Removed the integrated model directory containing Robot gripper and Orbbec Femto Mega camera due to third-party copyright concerns
+
+### Added
+- Added gripper grasping troubleshooting documentation (`docs/gripper_troubleshooting_zh.md`) with systematic diagnosis steps for Isaac Sim 5.1
+
+### Changed
+- Updated all robot model main USD files to remove gripper variant references
+- Updated README_zh.md to remove Robotiq gripper references and related documentation
+
+---
+
 ## [Unreleased]
 
 ### Planned
 - Add industrial SCARA robots (GBT-S3A, GBT-S6A, GBT-S10A, GBT-S20A)
 - Add industrial PUMA robot (GBT-P7A)
-- Provide default physics parameters for GBT-C7A
-- Provide default physics parameters for GBT-C12A
-- Provide default physics parameters for GBT-C16A
 - Isaac Sim example projects
 - Isaac Lab task configurations and examples

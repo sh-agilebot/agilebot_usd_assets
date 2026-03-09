@@ -18,7 +18,7 @@ This repository is the core asset repository for the official Agilebot Isaac eco
 
 - **Standardized Assets**: All robot models are in USD format, supporting seamless integration across platforms and tools
 - **Physics Optimized**: Pre-configured joint natural frequencies and damping parameters ensure simulation stability and accuracy
-- **Variant Support**: Built-in gripper variants for dynamic end-effector configuration switching
+- **End-Effector Extension**: Users can import and assemble grippers following official NVIDIA tutorials
 - **Ready to Use**: No additional configuration required, directly load and use in Isaac Sim and Isaac Lab
 
 USD is an open standard for complex 3D scenes, supporting efficient hierarchical organization, composition, variants, physics, and semantic extensions. Through USD format, these robot models can be directly used in Isaac Sim, Isaac Lab, and Omniverse-related toolchains, with flexible component configuration and extension capabilities.
@@ -42,8 +42,6 @@ This repository works with the following repositories to provide a complete Agil
 ```
 agilebot_usd_assets/
 ├── gbt-c5a/                    # GBT-C5A collaborative robot model
-│   ├── Gripper/
-│   │   └── robotiq_2f_140.usd  # Robotiq 2F-140 gripper model
 │   ├── configuration/
 │   │   ├── materials/          # Material and texture resources
 │   │   ├── gbt-c5a_base.usd    # Robot base structure
@@ -51,8 +49,6 @@ agilebot_usd_assets/
 │   │   ├── gbt-c5a_robot.usd   # Main robot definition
 │   │   └── gbt-c5a_sensor.usd  # Sensor configuration
 │   └── gbt-c5a.usd             # Main entry USD file
-├── gbt-c5a_camera_gripper/     # GBT-C5A with camera and gripper integrated model
-│   └── gbt-c5a_camera_gripper.usd # Main entry USD file
 ├── gbt-c7a/                    # GBT-C7A collaborative robot model
 │   └── (Same structure as gbt-c5a)
 ├── gbt-c12a/                   # GBT-C12A collaborative robot model
@@ -75,13 +71,6 @@ agilebot_usd_assets/
 - **Features**: High-performance, cost-effective collaborative robot  
 - **Applications**: Assembly, gluing, inspection, and other collaborative tasks  
 
-### GBT-C5A with Camera and Gripper Integrated Model
-
-- **Composition**: GBT-C5A robot + Robotiq 2F-140 gripper + Orbbec Femto Mega camera  
-- **Camera Mount**: Adapted from [MetaIsaacGrasp](https://github.com/YitianShi/MetaIsaacGrasp) (MIT License)  
-- **Features**: Pre-configured integrated solution for vision-guided robotics applications  
-- **Applications**: Grasping, assembly, inspection, and other vision-aided tasks  
-
 ### GBT-C7A Collaborative Robot
 
 - **Rated Payload**: 7 kg  
@@ -100,36 +89,15 @@ agilebot_usd_assets/
 
 ---
 
-## 🔧 Gripper Configuration and Variant Switching
+## 🔧 Gripper Import and Assembly (User Self-Conversion)
 
-Each robot model provides **Robotiq 2F-140 gripper variant**, integrated as a USD VariantSet, allowing dynamic switching without modifying the USD structure.
+Due to copyright and compliance requirements, the README no longer provides gripper variant details.
+Please follow the official NVIDIA Isaac Sim 5.1.0 tutorials to complete gripper conversion and assembly:
 
-### Gripper Variant List
-
-| Robot Model | Gripper Variant | File Path |
-|------------|----------|----------|
-| GBT-C5A | robotiq_2f_140 | `gbt-c5a/Gripper/robotiq_2f_140.usd` |
-| GBT-C7A | robotiq_2f_140 | `gbt-c7a/Gripper/robotiq_2f_140.usd` |
-| GBT-C12A | robotiq_2f_140 | `gbt-c12a/Gripper/robotiq_2f_140.usd` |
-| GBT-C16A | robotiq_2f_140 | `gbt-c16a/Gripper/robotiq_2f_140.usd` |
-
-### Switch Gripper Variant via Python API
-
-In Isaac Sim / Isaac Lab, you can dynamically switch gripper configurations using the USD Python API:
-
-```python
-# Enable Robotiq 2F-140 gripper
-robot.GetVariantSet("Gripper").SetVariantSelection("robotiq_2f_140")
-
-# No gripper (bare flange)
-robot.GetVariantSet("Gripper").SetVariantSelection("None")
-```
-
-This method is suitable for:
-
-* End-effector switching for different tasks
-* Quick comparison testing of grippers/tools
-* Automated configuration in reinforcement learning or batch simulations
+1. Gripper Conversion (Import Robotiq 2F-140, Linux only)
+   https://docs.isaacsim.omniverse.nvidia.com/5.1.0/robot_setup_tutorials/tutorial_import_assemble_manipulator.html#import-the-robotiq-2f-140-gripper-linux-only
+2. Robot Assembler (Connect arm with gripper)
+   https://docs.isaacsim.omniverse.nvidia.com/5.1.0/robot_setup_tutorials/tutorial_import_assemble_manipulator.html#option-2-connect-the-ur10e-with-the-robotiq-2f-140-gripper-using-the-robot-assembler
 
 ---
 
@@ -196,8 +164,7 @@ For all robot models, the joint natural frequency and damping parameters have be
 These values are based on Isaac Sim official recommendations and have been tested to reduce issues like robot flying or shaking during simulation.
 
 Regarding mass and directional inertia:
-- **GBT-C5A**: Manually calculated by Agilebot
-- **Other Models (GBT-C7A, GBT-C12A, GBT-C16A)**: Automatically generated by SolidWorks or Isaac Sim
+- **All Models (GBT-C5A, GBT-C7A, GBT-C12A, GBT-C16A)**: Manually calculated by Agilebot
 
 Please manually adjust these parameters according to your specific simulation requirements to ensure accurate behavior.
 
@@ -235,12 +202,6 @@ This project is licensed under the **BSD 3-Clause License**, see [LICENSE](LICEN
 
 Thanks to the [NVIDIA Isaac Sim](https://developer.nvidia.com/isaac-sim) and [Isaac Lab](https://isaac-sim.github.io/IsaacLab/) teams for providing excellent robot simulation platforms.
 
-Special thanks to [Robotiq](https://robotiq.com/) for their open-source gripper model, which enhances the versatility of our robot assets.
-
-Thanks to [Orbbec](https://www.orbbec3d.com/) for their Femto Mega camera, which enables vision-guided robotics applications.
-
-Thanks to [MetaIsaacGrasp](https://github.com/YitianShi/MetaIsaacGrasp) for their camera mount design, which is used under the MIT License.
-
 For detailed information about third-party licenses, please refer to [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
 
 ---
@@ -261,11 +222,6 @@ Future development plans include:
 - [ ] GBT-S10A - 10 kg payload industrial SCARA robot
 - [ ] GBT-S20A - 20 kg payload industrial SCARA robot
 - [ ] GBT-P7A - 7 kg payload industrial PUMA robot
-
-### Physics Parameters
-- [ ] Provide default physics parameters for GBT-C7A
-- [ ] Provide default physics parameters for GBT-C12A
-- [ ] Provide default physics parameters for GBT-C16A
 
 ---
 
