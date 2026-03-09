@@ -206,12 +206,6 @@ Isaac Sim 的完整示例工程将在后续版本中提供。
 - [ ] GBT-S20A - 20kg 负载工业 SCARA 机器人
 - [ ] GBT-P7A - 7kg 负载工业 PUMA 机器人
 
-
-### 物理参数
-- [ ] 为 GBT-C7A 提供默认物理参数
-- [ ] 为 GBT-C12A 提供默认物理参数
-- [ ] 为 GBT-C16A 提供默认物理参数
-
 ---
 
 ## 🏢 关于 Agilebot Robotics

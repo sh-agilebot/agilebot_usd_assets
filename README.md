@@ -216,10 +216,7 @@ Future development plans include:
 - [ ] GBT-S20A - 20 kg payload industrial SCARA robot
 - [ ] GBT-P7A - 7 kg payload industrial PUMA robot
 
-### Physics Parameters
-- [ ] Provide default physics parameters for GBT-C7A
-- [ ] Provide default physics parameters for GBT-C12A
-- [ ] Provide default physics parameters for GBT-C16A
+
 
 ---
 
