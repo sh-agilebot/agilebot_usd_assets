@@ -93,30 +93,19 @@ agilebot_usd_assets/
 Due to copyright and compliance requirements, the README no longer provides gripper variant details.
 Please follow the official NVIDIA Isaac Sim 5.1.0 tutorials to complete gripper conversion and assembly:
 
-1. Gripper Conversion (Import Robotiq 2F-140, Linux only)
+1. Gripper conversion tutorial (NVIDIA example, Linux only)
    https://docs.isaacsim.omniverse.nvidia.com/5.1.0/robot_setup_tutorials/tutorial_import_assemble_manipulator.html#import-the-robotiq-2f-140-gripper-linux-only
-2. Robot Assembler (Connect arm with gripper)
+2. Robot Assembler tutorial (connect arm with gripper)
    https://docs.isaacsim.omniverse.nvidia.com/5.1.0/robot_setup_tutorials/tutorial_import_assemble_manipulator.html#option-2-connect-the-ur10e-with-the-robotiq-2f-140-gripper-using-the-robot-assembler
 
 ---
 
 ## 💡 Tips
 
-Gripper grasping issues: Insufficient force causes slipping, excessive force causes clipping.  
-Troubleshooting guide:  
-[docs/gripper_troubleshooting_zh.md](docs/gripper_troubleshooting_zh.md)
+If you encounter unstable grasping, slipping, or clipping during grasp execution, the issue is usually related to gripper force settings: too little force tends to cause slipping, while too much force can cause clipping.  
+For a step-by-step troubleshooting guide, see:
+- [docs/gripper_troubleshooting.md](docs/gripper_troubleshooting.md) 
 
----
-
-## 📦 Gripper Model Source
-
-The gripper model is sourced from the open-source project:
-[robotiq_2f_gripper](https://github.com/gen-robot/robotiq_2f_gripper/tree/main/robotiq_2f_140_gripper_visualization)
-
-This model is for simulation and demonstration purposes only, and its copyright belongs to the original author.
-
-Gripper import and assembly process refers to NVIDIA official documentation:
-[Isaac Sim Robot Import and Assembly Tutorial](https://docs.isaacsim.omniverse.nvidia.com/latest/robot_setup_tutorials/tutorial_import_assemble_manipulator.html)
 
 ---
 
@@ -126,7 +115,7 @@ Gripper import and assembly process refers to NVIDIA official documentation:
 
 - **System**: Ubuntu 22.04
 - **GPU**: NVIDIA RTX 5090
-- **Isaac Sim Version**: 5.1.0-rc.19+release.26219.9c81211b.gl
+- **Isaac Sim Version**: 5.1.0
 - **Isaac Lab Version**: 2.3.0
 
 ---

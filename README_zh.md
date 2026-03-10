@@ -93,18 +93,18 @@ agilebot_usd_assets/
 出于版权与合规要求，README 不再提供夹爪变体细节。  
 请按照 NVIDIA Isaac Sim 5.1.0 官方教程自行完成夹爪转换与装配：
 
-1. 夹爪转换（Import Robotiq 2F-140, Linux only）  
+1. 夹爪转换教程（NVIDIA 示例，Linux only）  
    https://docs.isaacsim.omniverse.nvidia.com/5.1.0/robot_setup_tutorials/tutorial_import_assemble_manipulator.html#import-the-robotiq-2f-140-gripper-linux-only
-2. 机械臂与夹爪装配（Robot Assembler）  
+2. 机械臂与夹爪装配教程（Robot Assembler）  
    https://docs.isaacsim.omniverse.nvidia.com/5.1.0/robot_setup_tutorials/tutorial_import_assemble_manipulator.html#option-2-connect-the-ur10e-with-the-robotiq-2f-140-gripper-using-the-robot-assembler
 
 ---
 
 ## 💡 小贴士
 
-抓取常见问题：夹爪力太小时容易夹不住或打滑，力太大时可能导致穿模。  
-抓取失败排查：  
-[docs/gripper_troubleshooting_zh.md](docs/gripper_troubleshooting_zh.md)
+如在抓取过程中出现夹持不稳、打滑或穿模等问题，通常与夹爪施力设置有关：力过小时容易夹不住或发生打滑，力过大时则可能导致穿模。  
+可进一步参考以下文档进行排查：
+- [docs/gripper_troubleshooting_zh.md](docs/gripper_troubleshooting_zh.md) 
 
 ---
 
@@ -114,7 +114,7 @@ agilebot_usd_assets/
 
 - **系统**：Ubuntu 22.04
 - **GPU**：NVIDIA RTX 5090
-- **Isaac Sim 版本**：5.1.0-rc.19+release.26219.9c81211b.gl
+- **Isaac Sim 版本**：5.1.0
 - **Isaac Lab 版本**：2.3.0
 
 ---
