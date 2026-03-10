@@ -161,20 +161,6 @@ Please manually adjust these parameters according to your specific simulation re
 
 ---
 
-## 🤝 Contribution Guidelines
-
-Contributions are welcome via Issues and Pull Requests.
-
-### Contribution Process
-
-1. Fork this repository
-2. Create a feature branch: `git checkout -b feature/AmazingFeature`
-3. Commit changes: `git commit -m "Add some AmazingFeature"`
-4. Push to remote branch: `git push origin feature/AmazingFeature`
-5. Create a Pull Request
-
----
-
 ## 📄 License
 
 This project is licensed under the **BSD 3-Clause License**, see [LICENSE](LICENSE) for details.

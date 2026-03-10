@@ -151,20 +151,6 @@ Isaac Sim 的完整示例工程将在后续版本中提供。
 
 ---
 
-## 🤝 贡献指南
-
-欢迎通过 Issue 与 Pull Request 参与本仓库的维护与改进。
-
-### 贡献流程
-
-1. Fork 本仓库
-2. 创建特性分支：`git checkout -b feature/AmazingFeature`
-3. 提交修改：`git commit -m "Add some AmazingFeature"`
-4. 推送到远程分支：`git push origin feature/AmazingFeature`
-5. 创建 Pull Request
-
----
-
 ## 📄 许可证
 
 本项目采用 **BSD 3-Clause License**，详见 [LICENSE](LICENSE)。
