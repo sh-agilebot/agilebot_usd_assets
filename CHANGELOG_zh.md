@@ -81,10 +81,21 @@
 
 ---
 
+## [0.0.5] - 2026-03-12
+
+### 新增
+- 新增 `gbt-c5a_wrist_camera_gripper` 组合模型目录，提供 GBT-C5A 机械臂、Robotiq 2F-140 夹爪和手腕相机安装位的 URDF 工作流
+- 新增中文使用文档，说明用户需自行将夹爪相关 URDF 转换为 USD，并在转换后的机器人 USD 上挂载腕部相机
+
+### 说明
+- 夹爪部分仅提供 URDF 集成方案，不发布转换后的 Robotiq 夹爪 USD 资产
+- 腕部相机支架模型为 AI 辅助生成，仅作为演示用途
+
+---
+
 ## [未发布]
 
 ### 计划中
 - 添加工业 SCARA 机器人（GBT-S3A、GBT-S6A、GBT-S10A、GBT-S20A）
 - 添加工业 PUMA 机器人（GBT-P7A）
-- Isaac Sim 示例项目
-- Isaac Lab 任务配置和示例
+

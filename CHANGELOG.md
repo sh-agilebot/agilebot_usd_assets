@@ -81,10 +81,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.5] - 2026-03-12
+
+### Added
+- Added the `gbt-c5a_wrist_camera_gripper` composite model directory, providing a URDF workflow for the GBT-C5A arm, Robotiq 2F-140 gripper, and wrist camera mounting point
+- Added changelog and Chinese usage documentation clarifying that users must convert the gripper-related URDF into USD themselves and attach the wrist camera onto the generated robot USD
+
+### Notes
+- The gripper is provided only as a URDF integration workflow; converted Robotiq gripper USD assets are not distributed
+- The wrist camera mount model was AI-assisted and is provided for demonstration only
+
+---
+
 ## [Unreleased]
 
 ### Planned
 - Add industrial SCARA robots (GBT-S3A, GBT-S6A, GBT-S10A, GBT-S20A)
 - Add industrial PUMA robot (GBT-P7A)
-- Isaac Sim example projects
-- Isaac Lab task configurations and examples

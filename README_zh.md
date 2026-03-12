@@ -54,6 +54,7 @@ agilebot_usd_assets/
 │   └── (结构与 gbt-c5a 相同)
 ├── gbt-c16a/                   # GBT-C16A 协作机器人模型
 │   └── (结构与 gbt-c5a 相同)
+├── gbt-c5a_wrist_camera_gripper/   # 带夹爪和手腕相机安装位的 URDF 工作流示例
 ├── LICENSE                     # BSD 3-Clause License
 ├── README.md                   # 英文版 README
 └── README_zh.md                # 中文版 README
@@ -86,6 +87,13 @@ agilebot_usd_assets/
 - **额定负载**：16 kg  
 - **特点**：大负载协作机器人，适用于重载作业场景  
 
+### GBT-C5A 手腕相机夹爪工作流
+
+- **类型**：基于 URDF 的集成工作流示例
+- **包含内容**：GBT-C5A 机械臂、Robotiq 2F-140 夹爪联动结构、手腕相机安装位、导入辅助脚本和使用文档
+- **用户仍需完成**：自行准备合法来源的 Robotiq 网格文件，自行将 URDF 转换为 USD，再把在线相机 USD 挂到生成后的机器人 USD 上
+- **说明**：手腕相机支架为 AI 辅助生成，仅作为演示用途
+
 ---
 
 ## 🔧 夹爪导入与装配（用户自行转换）
@@ -97,6 +105,9 @@ agilebot_usd_assets/
    https://docs.isaacsim.omniverse.nvidia.com/5.1.0/robot_setup_tutorials/tutorial_import_assemble_manipulator.html#import-the-robotiq-2f-140-gripper-linux-only
 2. 机械臂与夹爪装配教程（Robot Assembler）  
    https://docs.isaacsim.omniverse.nvidia.com/5.1.0/robot_setup_tutorials/tutorial_import_assemble_manipulator.html#option-2-connect-the-ur10e-with-the-robotiq-2f-140-gripper-using-the-robot-assembler
+
+新增的手腕相机工作流示例请参考：
+- [gbt-c5a_wrist_camera_gripper/README.zh-CN.md](gbt-c5a_wrist_camera_gripper/README.zh-CN.md)
 
 ---
 
@@ -125,6 +136,11 @@ agilebot_usd_assets/
 
 当前版本提供标准化 USD 资产文件，可直接通过 Isaac Sim 的 USD Loader 或 Reference 方式加载。
 Isaac Sim 的完整示例工程将在后续版本中提供。
+
+其中 `gbt-c5a_wrist_camera_gripper` 的推荐流程不同：
+- 在 Isaac Sim 中导入 `urdf/gbt-c5a_wrist_camera_gripper.urdf`
+- 在本地生成机器人 USD
+- 将在线相机 USD 挂载到 `camera_link`
 
 ### 在 Isaac Lab 中使用
 

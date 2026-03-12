@@ -54,6 +54,7 @@ agilebot_usd_assets/
 │   └── (Same structure as gbt-c5a)
 ├── gbt-c16a/                   # GBT-C16A collaborative robot model
 │   └── (Same structure as gbt-c5a)
+├── gbt-c5a_wrist_camera_gripper/   # URDF workflow example with gripper and wrist camera mount
 ├── LICENSE                     # BSD 3-Clause License
 ├── README.md                   # This file (English version)
 └── README_zh.md                # Chinese version
@@ -86,6 +87,13 @@ agilebot_usd_assets/
 - **Rated Payload**: 16 kg  
 - **Features**: Large-load collaborative robot suitable for heavy-duty operations  
 
+### GBT-C5A Wrist Camera Gripper Workflow
+
+- **Type**: URDF-based integration workflow example
+- **Contents**: GBT-C5A arm, Robotiq 2F-140 gripper linkage, wrist camera mounting point, import helper scripts, and usage documentation
+- **User Action Required**: Users must prepare lawful Robotiq mesh files, convert the URDF to USD themselves, and then attach the online camera USD onto the generated robot USD
+- **Note**: The wrist camera mount is AI-assisted and provided for demonstration only
+
 ---
 
 ## 🔧 Gripper Import and Assembly (User Self-Conversion)
@@ -97,6 +105,9 @@ Please follow the official NVIDIA Isaac Sim 5.1.0 tutorials to complete gripper 
    https://docs.isaacsim.omniverse.nvidia.com/5.1.0/robot_setup_tutorials/tutorial_import_assemble_manipulator.html#import-the-robotiq-2f-140-gripper-linux-only
 2. Robot Assembler tutorial (connect arm with gripper)
    https://docs.isaacsim.omniverse.nvidia.com/5.1.0/robot_setup_tutorials/tutorial_import_assemble_manipulator.html#option-2-connect-the-ur10e-with-the-robotiq-2f-140-gripper-using-the-robot-assembler
+
+For the newly added wrist-camera workflow example, see:
+- [gbt-c5a_wrist_camera_gripper/README.md](gbt-c5a_wrist_camera_gripper/README.md)
 
 ---
 
@@ -125,6 +136,11 @@ For a step-by-step troubleshooting guide, see:
 ### Using in Isaac Sim
 
 The current version provides standardized USD asset files, which can be directly loaded via Isaac Sim's USD Loader or Reference method. Complete sample projects for Isaac Sim will be provided in future releases.
+
+For `gbt-c5a_wrist_camera_gripper`, the recommended path is different:
+- Import `urdf/gbt-c5a_wrist_camera_gripper.urdf` in Isaac Sim
+- Generate the robot USD locally
+- Attach the online camera USD to `camera_link`
 
 ### Using in Isaac Lab
 
